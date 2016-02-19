@@ -1,0 +1,22 @@
+{
+  "name": "schedulerjs",
+  "version": "0.1.0",
+  "description": "a simple module to help schedule tasks",
+  "main": "./lib/scheduler.js",
+  "scripts": {
+    "test": "nodeunit",
+    "lint": "eslint lib"
+  },
+  "author": {
+    "name": "Yuan Xue",
+    "email": "yuanxue@gmail.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "cron-parser": "^1.1.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "sinon": "^1.17.3"
+  }
+}
