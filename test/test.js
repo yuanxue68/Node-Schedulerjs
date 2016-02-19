@@ -21,7 +21,7 @@ describe('Scheduler', function(){
 			timeOut = true;
 		});
 		task.start();
-		
+
 		chai.assert(timeOut === false, "time out is true before time is up");
 		clock.tick(510);
 		chai.assert(timeOut === true, "time out is false after time is up");
@@ -52,6 +52,21 @@ describe('Scheduler', function(){
 		chai.assert.equal(timeOut, 0, "# of time out is not 0 before time out");
 		clock.tick(60000);
 		chai.assert.equal(timeOut, 0, "time out occured after cancel is called");
+	});
+
+	it("timeout should not trigger immediate if timeout is longer than 2147483647ms", function(){
+		var now = new Date().getTime();
+		var future = new Date(now + 3000000000);
+		var timeOut = false;
+		var task = new scheduler(future, function(){
+			timeOut = true;
+		});
+		task.start();
+
+		chai.assert(timeOut === false, "time out is true before time is up");
+		clock.tick(1000);
+		chai.assert(timeOut === false, "time out is true after 2000000000 ms");
+
 	});
 
 });
