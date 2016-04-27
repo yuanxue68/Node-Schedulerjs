@@ -1,6 +1,6 @@
 {
   "name": "node-schedulerjs",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "a simple module to help schedule tasks",
   "main": "./lib/scheduler.js",
   "scripts": {
